@@ -1,0 +1,84 @@
+
+<!doctype html> 
+<html> 
+	<head> 
+		<title>JS1k, 1k demo submission [ID]</title> 
+		<meta charset="utf-8" /> 
+	</head> 
+	<body> 
+		<canvas id="c"></canvas> 
+		<script> 
+			var b = document.body;
+			var c = document.getElementsByTagName('canvas')[0];
+			var a = c.getContext('2d');
+			document.body.clientWidth; // fix bug in webkit: http://qfox.nl/weblog/218
+		</script> 
+		<script> 
+// start of submission //
+c.style.background="#ccc";
+c.width = 320;
+c.height = 200;
+M=Math;M.d=M.random;M.r=M.round;
+a.b=a.beginPath;a.f=a.fill;a.fr=a.fillRect;a.m=a.moveTo;a.l=a.lineTo;a.c=a.closePath;var t=2;
+
+var p=[];
+p.p=p.unshift;p.s=p.pop;
+function s() {
+  
+  //p.p(M.r(M.d() * 16));
+  p.p(15);
+  if (p.length > 5) p.s();
+  if(p.length==5 && ((p[5] & (1 << t)) > 0)) {
+    console.log("lost");
+  }
+  console.log(p);
+}
+//a.rotate(3.14);
+c=0;
+function d() {
+  a.save();
+  a.clearRect(0,0,320,200);
+  // field
+  a.b();
+  a.fillStyle="#FA0";
+  a.m(180,0);a.l(319,199);a.l(0,199);a.l(140,0);a.c();a.f();
+  a.fillStyle="#840";
+  a.save();
+  //a.setTransform(-1,0,0,1,20,20);
+  ll=p.length;for(i=0;i<ll;i++){
+   y=(7*i*i);
+   for(x=0;x<4;x++  ) {
+     if((p[i] & (1 << x)) > 0) a.fillRect(x*(10*i + 5) + (160 - (i*20)),y + 40,i*5+1,i*2+2);
+   }
+  }
+  a.restore();
+  r = 0.37-(t/4);
+  a.translate(70+(t*60),160);
+  a.rotate(r);
+  a.font = "40px sans-serif";
+  a.strokeStyle="#8c9";
+  a.lineWidth = "5";
+  a.b();
+  a.arc(0,-10,12,-4,1);
+  a.stroke();
+  a.fillStyle="#840";
+  a.fr(-12,-8,24,16);
+  a.fr(-18,0,5,20);
+  a.fr(13,0,5,20);
+  a.restore();
+  setTimeout(d,50);
+  c++;
+  if(c%10 == 0) s();
+}
+b.onkeydown = function(e) {
+  k=e.keyCode;if(k == 37)t--;if(k == 39)t++;t=t<0?0:(t>3?3:t);
+};
+d();
+
+// var i=c.toDataURL();
+// b.innerHTML += "<div  style='background:url(" + i + ") 0px -18px no-repeat; width:40px; height: 40px;'></div>";
+
+// end of submission //
+		</script> 
+	</body> 
+</html>
