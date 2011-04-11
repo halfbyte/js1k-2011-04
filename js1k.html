@@ -17,28 +17,23 @@
 // start of submission //
 for($ in a)a[$[0]+($[6]||$[2])]=a[$];
 c.style.background="#ccc";
-s = c.width = c.height = 320;
-M=Math;M.d=M.random;M.r=M.round;t=2;
+s=c.width=c.height=320;
 C=['#FA0','#840','#8C9','#000'];
-p=[];
-fa=false;
-l=3;sc=0;
+p=[];fa=false;l=3;sc=0;t=2;
+
 function f() {
-  
-  //p.p;
   if(p.length==5 && ((p[4] & (1 << t)) > 0)) {    
     l--;
-    if(l>0)console.log("Lost one life!");else {
-      console.log("GAME OVER");
-      l=3;
+    if(l>0);else {
+      
+      l=3;sc=0;
     }
-    p=[];
-    
+    p=[];    
   } else {
     sc+=10;
   }
-  p.unshift(M.r(M.d() * 16));
-  if (p.length > 5) p.pop();
+  p.unshift(Math.round(Math.random()*16));
+  if(p.length>5)p.pop();
 }
 c=0;
 function d() {
