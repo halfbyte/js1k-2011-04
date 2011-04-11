@@ -15,68 +15,72 @@
 		</script> 
 		<script> 
 // start of submission //
+for($ in a)a[$[0]+($[6]||$[2])]=a[$];
 c.style.background="#ccc";
-c.width = 320;
-c.height = 200;
-M=Math;M.d=M.random;M.r=M.round;
-a.b=a.beginPath;a.f=a.fill;a.fr=a.fillRect;a.m=a.moveTo;a.l=a.lineTo;a.c=a.closePath;var t=2;
-
-var p=[];
-p.p=p.unshift;p.s=p.pop;
-function s() {
+s = c.width = c.height = 320;
+M=Math;M.d=M.random;M.r=M.round;t=2;
+C=['#FA0','#840','#8C9','#000'];
+p=[];
+fa=false;
+l=3;sc=0;
+function f() {
   
-  //p.p(M.r(M.d() * 16));
-  p.p(15);
-  if (p.length > 5) p.s();
-  if(p.length==5 && ((p[5] & (1 << t)) > 0)) {
-    console.log("lost");
+  //p.p;
+  if(p.length==5 && ((p[4] & (1 << t)) > 0)) {    
+    l--;
+    if(l>0)console.log("Lost one life!");else {
+      console.log("GAME OVER");
+      l=3;
+    }
+    p=[];
+    
+  } else {
+    sc+=10;
   }
-  console.log(p);
+  p.unshift(M.r(M.d() * 16));
+  if (p.length > 5) p.pop();
 }
-//a.rotate(3.14);
 c=0;
 function d() {
-  a.save();
-  a.clearRect(0,0,320,200);
-  // field
-  a.b();
-  a.fillStyle="#FA0";
-  a.m(180,0);a.l(319,199);a.l(0,199);a.l(140,0);a.c();a.f();
-  a.fillStyle="#840";
-  a.save();
-  //a.setTransform(-1,0,0,1,20,20);
-  ll=p.length;for(i=0;i<ll;i++){
-   y=(7*i*i);
-   for(x=0;x<4;x++  ) {
-     if((p[i] & (1 << x)) > 0) a.fillRect(x*(10*i + 5) + (160 - (i*20)),y + 40,i*5+1,i*2+2);
-   }
+  with(a) {
+    sv();
+    ce(0,0,s,s);
+    // field
+    ba();fillStyle=C[0];
+    mv(180,0);ln(319,199);ln(0,199);ln(140,0);ca();fl();
+    fillStyle=C[1];
+    ll=p.length;for(i=0;i<ll;i++){
+      y=(7*i*i);
+      for(x=0;x<4;x++  ) {
+        if((p[i] & (1 << x)) > 0) a.fillRect(x*(10*i + 5) + (160 - (i*20)),y + 40,i*5+1,i*2+2);
+      }
+    }
+    r = 0.37-(t/4);
+    ta(70+(t*60),160);
+    rt(r);
+    strokeStyle=C[2];
+    lineWidth=5;
+    ba();
+    ac(0,-10,12,-4,1, fa);
+    sr();
+    fillStyle=C[1];
+    fc(-12,-8,24,16);
+    fc(-18,0,5,20);
+    fc(13,0,5,20);
+    re();
+    fillStyle=C[3];
+    
+    fx("SCORE:" + sc, 20,20);
+    fx("LIVES:" + l, 20,40);
   }
-  a.restore();
-  r = 0.37-(t/4);
-  a.translate(70+(t*60),160);
-  a.rotate(r);
-  a.font = "40px sans-serif";
-  a.strokeStyle="#8c9";
-  a.lineWidth = "5";
-  a.b();
-  a.arc(0,-10,12,-4,1);
-  a.stroke();
-  a.fillStyle="#840";
-  a.fr(-12,-8,24,16);
-  a.fr(-18,0,5,20);
-  a.fr(13,0,5,20);
-  a.restore();
   setTimeout(d,50);
   c++;
-  if(c%10 == 0) s();
+  if(c%10 == 0) f();
 }
-b.onkeydown = function(e) {
-  k=e.keyCode;if(k == 37)t--;if(k == 39)t++;t=t<0?0:(t>3?3:t);
+window.onkeydown = function(e) {
+  k=e.keyCode||e.which;if(k == 37)t--;if(k == 39)t++;t=t<0?0:(t>3?3:t);
 };
 d();
-
-// var i=c.toDataURL();
-// b.innerHTML += "<div  style='background:url(" + i + ") 0px -18px no-repeat; width:40px; height: 40px;'></div>";
 
 // end of submission //
 		</script> 
