@@ -18,28 +18,35 @@
 for($ in a)a[$[0]+($[6]||$[2])]=a[$];
 c.style.background="#ccc";
 s=c.width=c.height=320;
-C=['#FA0','#840','#8C9','#000'];
-p=[];fa=false;l=3;sc=0;t=2;
+C='#FA07#8407#8C97#000'.split(7);
+p=[];fa=false;l=3;sc=0;t=2;z=10;
+a.font="20px serif"
 
 function f() {
   if(p.length==5 && ((p[4] & (1 << t)) > 0)) {    
-    l--;
-    if(l>0);else {
-      
-      l=3;sc=0;
-    }
-    p=[];    
+    l--;p=[];
+    if(l<=0) g();
   } else {
     sc+=10;
   }
-  p.unshift(Math.round(Math.random()*16));
+  sc%500==0?z--:z;
+  
+  p.unshift(Math.round(Math.random()*14));
   if(p.length>5)p.pop();
 }
 c=0;
+function g() {
+  a.fx("GAME OVER", 100,20);
+  l=3;sc=0;z=11;
+  clearTimeout(k);
+  setTimeout(d, 2000);
+}
 function d() {
   with(a) {
+    
     sv();
     ce(0,0,s,s);
+    ta(0,120);
     // field
     ba();fillStyle=C[0];
     mv(180,0);ln(319,199);ln(0,199);ln(140,0);ca();fl();
@@ -65,12 +72,13 @@ function d() {
     re();
     fillStyle=C[3];
     
-    fx("SCORE:" + sc, 20,20);
-    fx("LIVES:" + l, 20,40);
+    fx(sc, 280, 40);
+    fx(l, 20,40);
+    
   }
-  setTimeout(d,50);
+  k=setTimeout(d,50);
   c++;
-  if(c%10 == 0) f();
+  if(c%z==0) f();
 }
 window.onkeydown = function(e) {
   k=e.keyCode||e.which;if(k == 37)t--;if(k == 39)t++;t=t<0?0:(t>3?3:t);
