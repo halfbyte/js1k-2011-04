@@ -15,76 +15,7 @@
 		</script> 
 		<script> 
 // start of submission //
-for($ in a)a[$[0]+($[6]||$[2])]=a[$];
-c.style.background="#ccc";
-s=c.width=c.height=320;
-C='#FA07#8407#8C97#000'.split(7);
-p=[];fa=false;l=3;sc=0;t=2;z=10;
-a.font="20px serif"
-
-function f() {
-  if(p.length==5 && ((p[4] & (1 << t)) > 0)) {    
-    l--;p=[];
-    if(l<=0) g();
-  } else {
-    sc+=10;
-  }
-  sc%500==0?z--:z;
-  
-  p.unshift(Math.round(Math.random()*14));
-  if(p.length>5)p.pop();
-}
-c=0;
-function g() {
-  a.fx("GAME OVER", 100,20);
-  l=3;sc=0;z=11;
-  clearTimeout(k);
-  setTimeout(d, 2000);
-}
-function d() {
-  with(a) {
-    
-    sv();
-    ce(0,0,s,s);
-    ta(0,120);
-    // field
-    ba();fillStyle=C[0];
-    mv(180,0);ln(319,199);ln(0,199);ln(140,0);ca();fl();
-    fillStyle=C[1];
-    ll=p.length;for(i=0;i<ll;i++){
-      y=(7*i*i);
-      for(x=0;x<4;x++  ) {
-        if((p[i] & (1 << x)) > 0) a.fillRect(x*(10*i + 5) + (160 - (i*20)),y + 40,i*5+1,i*2+2);
-      }
-    }
-    r = 0.37-(t/4);
-    ta(70+(t*60),160);
-    rt(r);
-    strokeStyle=C[2];
-    lineWidth=5;
-    ba();
-    ac(0,-10,12,-4,1, fa);
-    sr();
-    fillStyle=C[1];
-    fc(-12,-8,24,16);
-    fc(-18,0,5,20);
-    fc(13,0,5,20);
-    re();
-    fillStyle=C[3];
-    
-    fx(sc, 280, 40);
-    fx(l, 20,40);
-    
-  }
-  k=setTimeout(d,50);
-  c++;
-  if(c%z==0) f();
-}
-window.onkeydown = function(e) {
-  k=e.keyCode||e.which;if(k == 37)t--;if(k == 39)t++;t=t<0?0:(t>3?3:t);
-};
-d();
-
+_="$ in a)a[$[0]+($[6]||$[2])]=a[$];s=c.w@c.height2v2k=2q=20U,j==t=2,zh6C='#00F84HFFF00HAAF04H8F842HC81'.spliI7ont='20px serif';aB=cLv);B0	4]);GG5	6]);SS7	8]sT=set,Mr=Math.random,window.ondowna=a.Code,=7t=9tJ,t=t<0?0:t>3?3:t},f==5(p[4Dt)>0?(lU<g()):+%500=zp.unshifIMr()*14|>5p.pop(,gx('GAME OVER',y,2l,=z1,clear(T&2e3,dasv(ceKsB,KvG,v,KqtavbNS,mvXln(KqlnqlnXcNfl1l=;i;i<ll;iJy=7*Pi;x;x<4;xJ)(p[iDx)>0illRecIx*(10*i+5)+(h-P2y+4P5+1,P2+2r=.37-t/4,tN70+t*6hrIrstrokeStyle=C[2ineW@5,bNac-11,!1sr1],-24,16-18Y13Yre3],fx(,28kfx(lQQT=&5jJ,j%z=f(,d()";for(X in Y="Y,5QX(h,Up=[Q,kPi*Na(Ks,J++It(H0&sT(d,D]&1<<@idth=--,a.f=0(sc=1=312,-4,0)}Timeout(C[for(],l){&&7#)C[fc(key=cL(v,s);	]1,C[p.lengthwith(),=function(0,addColorStop(),fillStyle=".split(""))_=_.replace(RegExp(Y[X][0],"g"),Y[X].slice(1));eval(_)
 // end of submission //
 		</script> 
 	</body> 
