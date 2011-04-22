@@ -1,5 +1,5 @@
 for($ in a)a[$[0]+($[6]||$[2])]=a[$];
-s=c.width=c.height=320;v=120;k=20;q=200;p=[];l=3;j=sc=0;t=2;z=10;h=160;
+s=c.width=c.height=320;v=120;k=20;q=200;p=[];l=3;j=I=0;t=2;z=10;h=160;
 C='#00F7#8407#FFF7#0007#AAF7#0407#8F87#4207#C81'.split(7);
 a.font='20px serif'
 with(a) {
@@ -7,21 +7,19 @@ with(a) {
   G=cL(0,v,0,s);with(G){addColorStop(0,C[5]);addColorStop(1, C[6])};
   S=cL(0,v,0,s);with(S){addColorStop(0,C[7]);addColorStop(1, C[8])};  
 };
-sT=setTimeout;Mr=Math.random;
+sT=setTimeout;
 window.onkeydown=function(e) {key=e.keyCode;if(key==37)t--;if(key==39)t++;t=t<0?0:(t>3?3:t)};
 f=function() {
-  if(p.length==5 && ((p[4] & (1 << t)) > 0)) {    
-    l--;p=[];
-    if(l<=0) g();
-  } else {
-    sc+=10;
-  }
-  if(sc%500==0)z--;
-  p.unshift(Mr()*14|0);
+  if(p.length==5 && ((p[4] & (1 << t)) > 0)) {
+    l--,p=[];
+    if(l<=0)g()
+  } else I+=5;
+  if(!(I%q))z=z<1?1:z-1;
+  p.unshift(Math.random()*14|0);
   if(p.length>5)p.pop();
 },g=function() {
   a.fx('GAME OVER', y,20);
-  l=3;sc=0;z=11;
+  l=3;I=0;z=11;
   clearTimeout(T);
   sT(d, 2000);
 },d=function() {
@@ -58,7 +56,7 @@ f=function() {
     re();
     fillStyle=C[3];
     
-    fx(sc, 280, k);
+    fx(I, 280, k);
     fx(l, k,k);
     
   }
